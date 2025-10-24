@@ -6,90 +6,62 @@
 /*   By: fsousa <fsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:38:28 by fsousa            #+#    #+#             */
-/*   Updated: 2025/10/23 17:25:17 by fsousa           ###   ########.fr       */
+/*   Updated: 2025/10/24 18:42:16 by fsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_robust_atoi_validations(const char *str, int *error_flag, int *i,
-		int *sign)
+static void	ft_which_exit_error(int argc, t_stack **a, t_stack **b,
+		char **args_array)
 {
-	if (!str)
-	{
-		*error_flag = 1;
-		return (0);
-	}
-	while (ft_isspace(str[(*i)]))
-		(*i)++;
-	if (str[(*i)] == '+' || str[(*i)] == '-')
-	{
-		if (str[(*i)] == '-')
-		{
-			*sign = -1;
-		}
-		(*i)++;
-	}
-	if (ft_isdigit(str[(*i)]) == 0)
-	{
-		*error_flag = 1;
-		return (0);
-	}
-	return (1);
-}
-
-static int	ft_verify_int_overflow(int digit, int sign, long long result,
-		int *error_flag)
-{
-	if (sign == 1)
-	{
-		if (result > MAX_INT / 10 || (result == MAX_INT / 10 && digit > MAX_INT
-				% 10))
-		{
-			*error_flag = 1;
-			return (0);
-		}
-	}
+	if (argc == 2)
+		ft_exit_error(a, b, args_array);
 	else
-	{
-		if (result > ((long long)MAX_INT + 1) / 10
-			|| (result == (((long long)MAX_INT + 1) / 10)
-				&& digit > ((long long)MAX_INT + 1) % 10))
-		{
-			*error_flag = 1;
-			return (0);
-		}
-	}
-	return (1);
+		ft_exit_error(a, b, NULL);
 }
 
-int	ft_robust_atoi(const char *str, int *error_flag)
+static char	**ft_initialize_num(int argc, char **argv, t_stack **a, t_stack **b)
 {
-	long long result;
-	int i;
-	int sign;
-	int digit;
+	char	**args_array;
+
+	args_array = NULL;
+	if (argc == 2)
+	{
+		args_array = ft_split(argv[1], ' ');
+		if (!args_array)
+			ft_exit_error(a, b, NULL);
+	}
+	else if (argc > 2)
+		args_array = &argv[1];
+	return (args_array);
+}
+
+void	ft_parse_and_fill(t_stack **stack_a, t_stack **stack_b, int argc,
+		char **argv)
+{
+	char	**args_array;
+	int		i;
+	int		error_flag;
+	int		num;
+	t_stack	*new_node;
 
 	i = 0;
-	digit = 0;
-	result = 0;
-	sign = 1;
-	if (!ft_robust_atoi_validations(str, error_flag, &i, &sign))
-		return (0);
-	while (ft_isdigit(str[i]))
+	error_flag = 0;
+	args_array = ft_initialize_num(argc, argv, stack_a, stack_b);
+	while (args_array[i])
 	{
-		digit = str[i] - '0';
-		if (!ft_verify_int_overflow(digit, sign, result, error_flag))
-			return (0);
-		result = (result * 10) + digit;
+		num = ft_robust_atoi(args_array[i], &error_flag);
+		if (error_flag == 1)
+			ft_which_exit_error(argc, stack_a, stack_b, args_array);
+		new_node = ft_new_node(num);
+		if (!new_node)
+			ft_which_exit_error(argc, stack_a, stack_b, args_array);
+		ft_add_node_back(stack_a, new_node);
 		i++;
 	}
-	while (ft_isspace(str[i]))
-		i++;
-	if (str[i] != '\0')
-	{
-		*error_flag = 1;
-		return (0);
-	}
-	return ((int)(result * sign));
+	if (argc == 2)
+		ft_free_arr(args_array);
+	if (ft_has_duplicates(*stack_a))
+		ft_exit_error(stack_a, stack_b, NULL);
 }

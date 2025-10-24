@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   debug_utils.c                                      :+:      :+:    :+:   */
+/*   free_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsousa <fsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/23 15:30:20 by fsousa            #+#    #+#             */
-/*   Updated: 2025/10/24 18:38:24 by fsousa           ###   ########.fr       */
+/*   Created: 2025/10/24 15:44:15 by fsousa            #+#    #+#             */
+/*   Updated: 2025/10/24 18:38:39 by fsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_print_stack(t_stack *stack)
+void	ft_free_arr(char **arr)
 {
-	t_stack	*current;
+	int	i;
 
-	if (!stack)
+	if (!arr)
 		return ;
-	if (stack->next == stack)
+	i = 0;
+	while (arr[i])
 	{
-		ft_printf("%d\n", stack->value);
-		return ;
+		free(arr[i]);
+		i++;
 	}
-	current = stack;
-	ft_printf("%d\n", current->value);
-	current = stack->next;
-	while (current != stack)
-	{
-		ft_printf("%d\n", current->value);
-		current = current->next;
-	}
+	free(arr);
 }

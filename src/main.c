@@ -6,13 +6,25 @@
 /*   By: fsousa <fsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:33:47 by fsousa            #+#    #+#             */
-/*   Updated: 2025/10/23 15:34:07 by fsousa           ###   ########.fr       */
+/*   Updated: 2025/10/24 18:40:23 by fsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+
+	if (argc < 2)
+		return (1);
+	stack_a = NULL;
+	stack_b = NULL;
+	ft_parse_and_fill(&stack_a, &stack_b, argc, argv);
+	ft_printf("--- Stack A (Início) ---\n");
+	ft_print_stack(stack_a);
+	ft_free_stack(&stack_a);
+	ft_free_stack(&stack_b);
+	return (0);
 }

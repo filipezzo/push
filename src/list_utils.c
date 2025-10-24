@@ -6,7 +6,7 @@
 /*   By: fsousa <fsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 12:59:08 by fsousa            #+#    #+#             */
-/*   Updated: 2025/10/23 15:29:06 by fsousa           ###   ########.fr       */
+/*   Updated: 2025/10/24 18:38:45 by fsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_stack	*ft_new_node(int value)
 
 void	ft_add_node_back(t_stack **head, t_stack *new_node)
 {
-	t_stack *last_node;
+	t_stack	*last_node;
 
 	if (!new_node)
 		return ;
@@ -46,18 +46,18 @@ void	ft_add_node_back(t_stack **head, t_stack *new_node)
 	(*head)->prev = new_node;
 }
 
-int     ft_stack_size(t_stack *head)
+int	ft_stack_size(t_stack *head)
 {
-	int size;
-	t_stack *current;
-	
-	if(!head)
+	int		size;
+	t_stack	*current;
+
+	if (!head)
 		return (0);
-	if(head->next == head)
+	if (head->next == head)
 		return (1);
 	current = head->next;
 	size = 1;
-	while(current != head)
+	while (current != head)
 	{
 		current = current->next;
 		size++;
@@ -65,18 +65,18 @@ int     ft_stack_size(t_stack *head)
 	return (size);
 }
 
-void    ft_free_stack(t_stack **head)
+void	ft_free_stack(t_stack **head)
 {
-	t_stack *current;
-	t_stack *temp;
-	t_stack *tail;
+	t_stack	*current;
+	t_stack	*temp;
+	t_stack	*tail;
 
-	if(!head || !*head)
-		return; 
+	if (!head || !*head)
+		return ;
 	current = *head;
 	tail = (*head)->prev;
 	tail->next = NULL;
-	while(current)
+	while (current)
 	{
 		temp = current->next;
 		free(current);
