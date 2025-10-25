@@ -6,7 +6,7 @@
 #    By: fsousa <fsousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/24 17:45:28 by fsousa            #+#    #+#              #
-#    Updated: 2025/10/24 18:27:02 by fsousa           ###   ########.fr        #
+#    Updated: 2025/10/25 14:41:55 by fsousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,10 @@ SRC_FILES = main.c \
 			free_utils.c \
 			parsing_utils.c \
 			error_handling.c \
-			robust_atoi.c 
+			robust_atoi.c \
+			operations_rotate_reverse.c \
+			operations_rotate.c \
+			operations_swap.c
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))

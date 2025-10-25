@@ -6,7 +6,7 @@
 /*   By: fsousa <fsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 12:59:10 by fsousa            #+#    #+#             */
-/*   Updated: 2025/10/24 18:38:15 by fsousa           ###   ########.fr       */
+/*   Updated: 2025/10/25 15:36:48 by fsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,14 @@ void				ft_print_stack(t_stack *stack);
 
 void				ft_free_arr(char **arr);
 int					ft_robust_atoi(const char *str, int *error_flag);
+void				sa(t_stack **stack_a, int should_print);
+void				sb(t_stack **stack_b, int should_print);
+void				ss(t_stack **stack_a, t_stack **stack_b);
+void				ra(t_stack **stack_a, int should_print);
+void				rb(t_stack **stack_b, int should_print);
+void				rr(t_stack **stack_a, t_stack **stack_b);
+void				rra(t_stack **stack_a, int should_print);
+void				rrb(t_stack **stack_b, int should_print);
+void				rrr(t_stack **stack_a, t_stack **stack_b);
 
 #endif
