@@ -6,7 +6,7 @@
 /*   By: fsousa <fsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:33:47 by fsousa            #+#    #+#             */
-/*   Updated: 2025/10/25 14:43:45 by fsousa           ###   ########.fr       */
+/*   Updated: 2025/10/28 16:36:57 by fsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char *argv[])
 	ft_parse_and_fill(&stack_a, &stack_b, argc, argv);
 	ft_printf("--- Stack A (Início) ---\n");
 	ft_print_stack(stack_a);
-	sa(&stack_a);
+	sa(&stack_a, 1);
 	ft_printf("--- swap A ---\n");
 	ft_print_stack(stack_a);
 	ft_free_stack(&stack_a);

@@ -6,7 +6,7 @@
 /*   By: fsousa <fsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 12:59:10 by fsousa            #+#    #+#             */
-/*   Updated: 2025/10/25 15:36:48 by fsousa           ###   ########.fr       */
+/*   Updated: 2025/10/28 16:36:47 by fsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void				rr(t_stack **stack_a, t_stack **stack_b);
 void				rra(t_stack **stack_a, int should_print);
 void				rrb(t_stack **stack_b, int should_print);
 void				rrr(t_stack **stack_a, t_stack **stack_b);
-
+void				pa(t_stack **stack_a, t_stack **stack_b, int should_print);
+void				pb(t_stack **stack_a, t_stack **stack_b, int should_print);
 #endif
