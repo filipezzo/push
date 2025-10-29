@@ -12,57 +12,50 @@
 
 #include "push_swap.h"
 
-void	sa(t_stack **stack_a, int should_print)
+static void swap_top(t_stack **s, int should_print, const char *op)
 {
-	t_stack	*first;
-	t_stack	*second;
-	t_stack	*third;
-	t_stack	*last;
+	t_stack *first;
+	t_stack *second;
+	t_stack *third;
+	t_stack *last;
 
-	if (!(*stack_a) || (*stack_a)->next == *stack_a)
-		return ;
-	first = *stack_a;
+	if (!s || !*s || (*s)->next == *s)
+		return;
+	first = *s;
 	second = first->next;
+	if (second->next == first)
+	{
+		*s = second;
+		if (should_print)
+			ft_putstr_fd((char *)op, 1);
+		return;
+	}
 	third = second->next;
 	last = first->prev;
 	first->next = third;
 	first->prev = second;
+	third->prev = first;
 	second->next = first;
 	second->prev = last;
-	third->prev = first;
 	last->next = second;
-	*stack_a = second;
+	*s = second;
 	if (should_print)
-		ft_putstr_fd("sa\n", 1);
+		ft_putstr_fd((char *)op, 1);
 }
 
-void	sb(t_stack **stack_b, int should_print)
+void sa(t_stack **stack_a, int should_print)
 {
-	t_stack	*first;
-	t_stack	*second;
-	t_stack	*third;
-	t_stack	*last;
-
-	if (!(*stack_b) || (*stack_b)->next == *stack_b)
-		return ;
-	first = *stack_b;
-	second = first->next;
-	third = second->next;
-	last = first->prev;
-	first->next = third;
-	first->prev = second;
-	second->next = first;
-	second->prev = last;
-	third->prev = first;
-	last->next = second;
-	*stack_b = second;
-	if (should_print)
-		ft_putstr_fd("sb\n", 1);
+	swap_top(stack_a, should_print, "sa\n");
 }
 
-void	ss(t_stack **stack_a, t_stack **stack_b)
+void sb(t_stack **stack_b, int should_print)
 {
-	sa(stack_a, 0);
-	sb(stack_b, 0);
+	swap_top(stack_b, should_print, "sb\n");
+}
+
+void ss(t_stack **stack_a, t_stack **stack_b)
+{
+	swap_top(stack_a, 0, "");
+	swap_top(stack_b, 0, "");
 	ft_putstr_fd("ss\n", 1);
 }

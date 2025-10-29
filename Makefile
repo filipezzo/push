@@ -30,13 +30,13 @@ SRC_FILES = main.c \
 			operations_rotate_reverse.c \
 			operations_rotate.c \
 			operations_swap.c \
-			operations_push.c \	
+			operations_push.c \
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
 HEADERS = $(addprefix $(INCLUDE_DIR)/, push_swap.h)
 
-CC = cc
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 IFLAGS = -I $(INCLUDE_DIR) -I $(LIBFT_DIR)/include
 LDFLAGS = -L $(LIBFT_DIR) -lft

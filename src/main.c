@@ -12,22 +12,30 @@
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	t_stack *stack_a;
+	t_stack *stack_b;
 
 	if (argc < 2)
 		return (1);
 	stack_a = NULL;
 	stack_b = NULL;
+
 	ft_parse_and_fill(&stack_a, &stack_b, argc, argv);
-	ft_printf("--- Stack A (Início) ---\n");
+	pb(&stack_a, &stack_b, 1);
+	pb(&stack_a, &stack_b, 1);
+	pb(&stack_a, &stack_b, 1);
+	ft_printf("--- Stack A  ---\n");
 	ft_print_stack(stack_a);
+	ft_printf("--- Stack B  ---\n");
+	ft_print_stack(stack_b);
 	sa(&stack_a, 1);
-	ft_printf("--- swap A ---\n");
+	sb(&stack_b, 1);
+	ss(&stack_a, &stack_b);
+	ft_printf("--- Stack A  ---\n");
 	ft_print_stack(stack_a);
-	ft_free_stack(&stack_a);
-	ft_free_stack(&stack_b);
+	ft_printf("--- Stack B  ---\n");
+	ft_print_stack(stack_b);
 	return (0);
 }
