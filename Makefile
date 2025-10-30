@@ -31,6 +31,8 @@ SRC_FILES = main.c \
 			operations_rotate.c \
 			operations_swap.c \
 			operations_push.c \
+			sort_utils.c \
+			sort.c 	\
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))

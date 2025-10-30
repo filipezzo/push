@@ -23,19 +23,8 @@ int main(int argc, char *argv[])
 	stack_b = NULL;
 
 	ft_parse_and_fill(&stack_a, &stack_b, argc, argv);
-	pb(&stack_a, &stack_b, 1);
-	pb(&stack_a, &stack_b, 1);
-	pb(&stack_a, &stack_b, 1);
-	ft_printf("--- Stack A  ---\n");
+	sort_stack(&stack_a, &stack_b);
+	ft_printf("STACK A DAQUELE JEITO!!\n");
 	ft_print_stack(stack_a);
-	ft_printf("--- Stack B  ---\n");
-	ft_print_stack(stack_b);
-	sa(&stack_a, 1);
-	sb(&stack_b, 1);
-	ss(&stack_a, &stack_b);
-	ft_printf("--- Stack A  ---\n");
-	ft_print_stack(stack_a);
-	ft_printf("--- Stack B  ---\n");
-	ft_print_stack(stack_b);
 	return (0);
 }
