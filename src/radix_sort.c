@@ -6,7 +6,7 @@
 /*   By: fsousa <fsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 17:30:18 by fsousa            #+#    #+#             */
-/*   Updated: 2025/11/02 18:31:39 by fsousa           ###   ########.fr       */
+/*   Updated: 2025/11/03 16:06:13 by fsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@ static int	get_max_bits(int max_index)
 	return (max_bits);
 }
 
-void	radix_sort(t_stack **a, t_stack **b)
+void	radix_sort(t_stack **a, t_stack **b, int i, int j)
 {
 	int		size;
 	int		max_index;
 	int		max_bits;
-	int		i;
-	int		j;
 	t_stack	*top_node;
 
 	size = ft_stack_size(*a);

@@ -6,7 +6,7 @@
 /*   By: fsousa <fsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 11:12:32 by fsousa            #+#    #+#             */
-/*   Updated: 2025/11/02 18:33:47 by fsousa           ###   ########.fr       */
+/*   Updated: 2025/11/02 18:57:14 by fsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ void	sort_stack(t_stack **stack_a, t_stack **stack_b)
 	else
 	{
 		assign_index(*stack_a);
-		radix_sort(stack_a, stack_b);
+		radix_sort(stack_a, stack_b, 0, 0);
 	}
 }

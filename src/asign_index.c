@@ -6,30 +6,38 @@
 /*   By: fsousa <fsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 16:09:26 by fsousa            #+#    #+#             */
-/*   Updated: 2025/11/02 17:47:44 by fsousa           ###   ########.fr       */
+/*   Updated: 2025/11/03 15:59:26 by fsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_stack	*find_next_min_node(t_stack *head)
+static t_stack	*find_first_unindexed_node(t_stack *head)
 {
 	t_stack	*current;
-	t_stack	*min_node;
 
+	if (!head)
+		return (NULL);
 	current = head;
-	min_node = NULL;
 	while (current)
 	{
 		if (current->index == -1)
-		{
-			min_node = current;
-			break ;
-		}
+			return (current);
 		current = current->next;
 		if (current == head)
 			return (NULL);
 	}
+	return (NULL);
+}
+
+static t_stack	*find_next_min_node(t_stack *head)
+{
+	t_stack	*min_node;
+	t_stack	*current;
+
+	min_node = find_first_unindexed_node(head);
+	if (min_node == NULL)
+		return (NULL);
 	current = head;
 	while (current)
 	{

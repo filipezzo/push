@@ -6,7 +6,7 @@
 #    By: fsousa <fsousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/24 17:45:28 by fsousa            #+#    #+#              #
-#    Updated: 2025/11/02 17:49:11 by fsousa           ###   ########.fr        #
+#    Updated: 2025/11/03 14:53:55 by fsousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ SRC_FILES = main.c \
 			radix_sort.c \
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
-OBJS = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o)) 
 HEADERS = $(addprefix $(INCLUDE_DIR)/, push_swap.h)
 
 CC = gcc

@@ -6,7 +6,7 @@
 /*   By: fsousa <fsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 12:59:10 by fsousa            #+#    #+#             */
-/*   Updated: 2025/11/02 17:47:53 by fsousa           ###   ########.fr       */
+/*   Updated: 2025/11/02 18:56:47 by fsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,5 @@ t_stack				*find_the_min_node(t_stack *stack);
 int					get_node_position(t_stack *node, t_stack *min_node);
 void				move_min_to_top_a(t_stack **a);
 void				assign_index(t_stack *head);
-void				radix_sort(t_stack **a, t_stack **b);
+void				radix_sort(t_stack **a, t_stack **b, int i, int j);
 #endif
