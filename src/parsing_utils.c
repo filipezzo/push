@@ -6,7 +6,7 @@
 /*   By: fsousa <fsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:38:28 by fsousa            #+#    #+#             */
-/*   Updated: 2025/10/24 18:42:16 by fsousa           ###   ########.fr       */
+/*   Updated: 2025/11/03 18:22:23 by fsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ static char	**ft_initialize_num(int argc, char **argv, t_stack **a, t_stack **b)
 		args_array = ft_split(argv[1], ' ');
 		if (!args_array)
 			ft_exit_error(a, b, NULL);
+		if (!args_array[0])
+			ft_exit_error(a, b, args_array);
 	}
 	else if (argc > 2)
 		args_array = &argv[1];

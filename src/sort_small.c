@@ -6,7 +6,7 @@
 /*   By: fsousa <fsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:04:56 by fsousa            #+#    #+#             */
-/*   Updated: 2025/10/30 13:28:06 by fsousa           ###   ########.fr       */
+/*   Updated: 2025/11/03 17:51:16 by fsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	move_min_to_top_a(t_stack **a)
 	min_node = find_the_min_node(*a);
 	position = get_node_position(*a, min_node);
 	i = 0;
-	if (i <= size / 2)
+	if (position <= size / 2)
 	{
 		while (i < position)
 		{
